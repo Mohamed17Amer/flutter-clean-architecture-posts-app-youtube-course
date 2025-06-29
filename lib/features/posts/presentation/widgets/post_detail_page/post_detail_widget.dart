@@ -19,21 +19,21 @@ class PostDetailWidget extends StatelessWidget {
         children: [
           Text(
             post.title,
-            style: TextStyle(
+            style: const TextStyle(
               fontSize: 20,
               fontWeight: FontWeight.bold,
             ),
           ),
-          Divider(
+          const Divider(
             height: 50,
           ),
           Text(
             post.body,
-            style: TextStyle(
+            style: const TextStyle(
               fontSize: 16,
             ),
           ),
-          Divider(
+          const Divider(
             height: 50,
           ),
           Row(

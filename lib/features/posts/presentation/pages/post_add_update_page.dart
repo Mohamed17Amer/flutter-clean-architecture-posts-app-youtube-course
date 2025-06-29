@@ -29,7 +29,7 @@ class PostAddUpdatePage extends StatelessWidget {
   Widget _buildBody() {
     return Center(
       child: Padding(
-          padding: EdgeInsets.all(10),
+          padding: const EdgeInsets.all(10),
           child:
               BlocConsumer<AddDeleteUpdatePostBloc, AddDeleteUpdatePostState>(
             listener: (context, state) {
@@ -37,7 +37,7 @@ class PostAddUpdatePage extends StatelessWidget {
                 SnackBarMessage().showSuccessSnackBar(
                     message: state.message, context: context);
                 Navigator.of(context).pushAndRemoveUntil(
-                    MaterialPageRoute(builder: (_) => PostsPage()),
+                    MaterialPageRoute(builder: (_) => const PostsPage()),
                     (route) => false);
               } else if (state is ErrorAddDeleteUpdatePostState) {
                 SnackBarMessage().showErrorSnackBar(
@@ -46,7 +46,7 @@ class PostAddUpdatePage extends StatelessWidget {
             },
             builder: (context, state) {
               if (state is LoadingAddDeleteUpdatePostState) {
-                return LoadingWidget();
+                return const LoadingWidget();
               }
 
               return FormWidget(

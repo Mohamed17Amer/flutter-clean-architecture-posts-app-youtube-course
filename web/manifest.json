@@ -1,6 +1,6 @@
 {
-    "name": "clean_architecture_posts_app",
-    "short_name": "clean_architecture_posts_app",
+    "name": "clean_posts",
+    "short_name": "clean_posts",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

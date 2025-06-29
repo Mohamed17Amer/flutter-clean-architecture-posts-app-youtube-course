@@ -9,7 +9,7 @@ import '../datasources/post_local_data_source.dart';
 import '../datasources/post_remote_data_source.dart';
 import '../models/post_model.dart';
 
-typedef Future<Unit> DeleteOrUpdateOrAddPost();
+typedef DeleteOrUpdateOrAddPost = Future<Unit> Function();
 
 class PostsRepositoryImpl implements PostsRepository {
   final PostRemoteDataSource remoteDataSource;
@@ -71,7 +71,7 @@ class PostsRepositoryImpl implements PostsRepository {
     if (await networkInfo.isConnected) {
       try {
         await deleteOrUpdateOrAddPost();
-        return Right(unit);
+        return const Right(unit);
       } on ServerException {
         return Left(ServerFailure());
       }

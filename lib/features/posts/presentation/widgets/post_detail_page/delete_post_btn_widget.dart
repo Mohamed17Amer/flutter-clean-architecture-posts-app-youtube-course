@@ -18,13 +18,13 @@ class DeletePostBtnWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton.icon(
       style: ButtonStyle(
-        backgroundColor: MaterialStateProperty.all(
+        backgroundColor: WidgetStateProperty.all(
           Colors.redAccent,
         ),
       ),
       onPressed: () => deleteDialog(context, postId),
-      icon: Icon(Icons.delete_outline),
-      label: Text("Delete"),
+      icon: const Icon(Icons.delete_outline),
+      label: const Text("Delete"),
     );
   }
 
@@ -41,7 +41,7 @@ class DeletePostBtnWidget extends StatelessWidget {
 
                 Navigator.of(context).pushAndRemoveUntil(
                     MaterialPageRoute(
-                      builder: (_) => PostsPage(),
+                      builder: (_) => const PostsPage(),
                     ),
                     (route) => false);
               } else if (state is ErrorAddDeleteUpdatePostState) {
@@ -52,7 +52,7 @@ class DeletePostBtnWidget extends StatelessWidget {
             },
             builder: (context, state) {
               if (state is LoadingAddDeleteUpdatePostState) {
-                return AlertDialog(
+                return const AlertDialog(
                   title: LoadingWidget(),
                 );
               }

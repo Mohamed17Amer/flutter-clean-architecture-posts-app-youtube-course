@@ -19,7 +19,7 @@ class PostsPage extends StatelessWidget {
     );
   }
 
-  AppBar _buildAppbar() => AppBar(title: Text('Posts'));
+  AppBar _buildAppbar() => AppBar(title: const Text('Posts'));
 
   Widget _buildBody() {
     return Padding(
@@ -27,7 +27,7 @@ class PostsPage extends StatelessWidget {
       child: BlocBuilder<PostsBloc, PostsState>(
         builder: (context, state) {
           if (state is LoadingPostsState) {
-            return LoadingWidget();
+            return const LoadingWidget();
           } else if (state is LoadedPostsState) {
             return RefreshIndicator(
                 onRefresh: () => _onRefresh(context),
@@ -35,7 +35,7 @@ class PostsPage extends StatelessWidget {
           } else if (state is ErrorPostsState) {
             return MessageDisplayWidget(message: state.message);
           }
-          return LoadingWidget();
+          return const LoadingWidget();
         },
       ),
     );
@@ -51,11 +51,11 @@ class PostsPage extends StatelessWidget {
         Navigator.push(
             context,
             MaterialPageRoute(
-                builder: (_) => PostAddUpdatePage(
+                builder: (_) => const PostAddUpdatePage(
                       isUpdatePost: false,
                     )));
       },
-      child: Icon(Icons.add),
+      child: const Icon(Icons.add),
     );
   }
 }
